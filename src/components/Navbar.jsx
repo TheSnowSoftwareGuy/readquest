@@ -6,6 +6,79 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
   const location = useLocation()
   const isStudent = location.pathname.startsWith('/student') || location.pathname.startsWith('/discover')
   const isTeacher = location.pathname.startsWith('/teacher')
+  const isParent = location.pathname.startsWith('/parent')
+  const isAppPage = location.pathname.startsWith('/bookshelf') || location.pathname.startsWith('/reading-log') || location.pathname.startsWith('/achievements') || location.pathname.startsWith('/feed')
+
+  if (isParent) {
+    return (
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-purple-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2">
+            <span className="text-2xl">📚</span>
+            <span className="font-display font-bold text-xl text-rq-purple">ReadQuest</span>
+            <span className="text-xs bg-rq-orange text-white rounded-full px-2 py-0.5 font-semibold">Parent</span>
+          </Link>
+          <div className="hidden md:flex items-center gap-6">
+            <NavLink to="/parent" label="Dashboard" icon="📊" />
+            <NavLink to="/bookshelf" label="Bookshelf" icon="📚" />
+            <NavLink to="/discover" label="Discover" icon="📺" />
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="hidden md:block text-sm text-rq-muted">Parent Account</span>
+            <div className="w-9 h-9 bg-gradient-to-br from-rq-orange to-rq-purple rounded-full flex items-center justify-center text-white text-lg">
+              👨‍👩‍👧
+            </div>
+            <Link to="/" className="text-xs text-rq-muted hover:text-rq-purple ml-2">Exit Demo</Link>
+          </div>
+          <button className="md:hidden ml-2 text-2xl" onClick={() => setMobileOpen(!mobileOpen)}>☰</button>
+        </div>
+        {mobileOpen && (
+          <div className="md:hidden bg-white border-t border-purple-100 px-4 py-3 flex flex-col gap-2">
+            <NavLink to="/parent" label="Dashboard" icon="📊" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/bookshelf" label="Bookshelf" icon="📚" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/discover" label="Discover" icon="📺" mobile onClick={() => setMobileOpen(false)} />
+          </div>
+        )}
+      </nav>
+    )
+  }
+
+  if (isAppPage) {
+    return (
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-purple-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2">
+            <span className="text-2xl">📚</span>
+            <span className="font-display font-bold text-xl text-rq-purple">ReadQuest</span>
+          </Link>
+          <div className="hidden md:flex items-center gap-6">
+            <NavLink to="/bookshelf" label="My Bookshelf" icon="📚" />
+            <NavLink to="/reading-log" label="Reading Log" icon="📖" />
+            <NavLink to="/achievements" label="Achievements" icon="🏆" />
+            <NavLink to="/feed" label="Social Feed" icon="📣" />
+            <NavLink to="/student" label="Dashboard" icon="🏠" />
+            <NavLink to="/discover" label="Discover" icon="📺" />
+          </div>
+          <div className="flex items-center gap-3">
+            <Link to="/demo" className="text-xs text-rq-muted hover:text-rq-purple">Demo Mode</Link>
+            <Link to="/" className="text-xs text-rq-muted hover:text-rq-purple ml-2">Home</Link>
+          </div>
+          {/* Mobile nav */}
+          <button className="md:hidden ml-2 text-2xl" onClick={() => setMobileOpen(!mobileOpen)}>☰</button>
+        </div>
+        {mobileOpen && (
+          <div className="md:hidden bg-white border-t border-purple-100 px-4 py-3 flex flex-col gap-2">
+            <NavLink to="/bookshelf" label="My Bookshelf" icon="📚" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/reading-log" label="Reading Log" icon="📖" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/achievements" label="Achievements" icon="🏆" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/feed" label="Social Feed" icon="📣" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/student" label="Dashboard" icon="🏠" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/discover" label="Discover" icon="📺" mobile onClick={() => setMobileOpen(false)} />
+          </div>
+        )}
+      </nav>
+    )
+  }
 
   if (isStudent) {
     return (
@@ -17,11 +90,11 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
           </Link>
           <div className="hidden md:flex items-center gap-6">
             <NavLink to="/student" label="Home" icon="🏠" />
-            <NavLink to="/student/bookshelf" label="My Shelf" icon="📖" />
-            <NavLink to="/student/challenges" label="Challenges" icon="🏆" />
+            <NavLink to="/bookshelf" label="Bookshelf" icon="📚" />
+            <NavLink to="/reading-log" label="Reading Log" icon="📖" />
+            <NavLink to="/achievements" label="Achievements" icon="🏆" />
+            <NavLink to="/feed" label="Feed" icon="📣" />
             <NavLink to="/discover" label="Shows" icon="📺" />
-            <NavLink to="/student/social" label="Friends" icon="👥" />
-            <NavLink to="/student/stats" label="Stats" icon="📊" />
           </div>
           <div className="flex items-center gap-3">
             <div className="hidden md:flex items-center gap-2 bg-gradient-to-r from-purple-100 to-teal-100 rounded-full px-3 py-1.5">
@@ -43,11 +116,11 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
         {mobileOpen && (
           <div className="md:hidden bg-white border-t border-purple-100 px-4 py-3 flex flex-col gap-2">
             <NavLink to="/student" label="Home" icon="🏠" mobile onClick={() => setMobileOpen(false)} />
-            <NavLink to="/student/bookshelf" label="My Shelf" icon="📖" mobile onClick={() => setMobileOpen(false)} />
-            <NavLink to="/student/challenges" label="Challenges" icon="🏆" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/bookshelf" label="Bookshelf" icon="📚" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/reading-log" label="Reading Log" icon="📖" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/achievements" label="Achievements" icon="🏆" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/feed" label="Feed" icon="📣" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/discover" label="Shows" icon="📺" mobile onClick={() => setMobileOpen(false)} />
-            <NavLink to="/student/social" label="Friends" icon="👥" mobile onClick={() => setMobileOpen(false)} />
-            <NavLink to="/student/stats" label="Stats" icon="📊" mobile onClick={() => setMobileOpen(false)} />
           </div>
         )}
       </nav>
@@ -65,6 +138,7 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
           </Link>
           <div className="hidden md:flex items-center gap-6">
             <NavLink to="/teacher" label="Dashboard" icon="📊" />
+            <NavLink to="/teacher/class" label="Class View" icon="🏫" />
             <NavLink to="/teacher/students" label="Students" icon="👥" />
             <NavLink to="/teacher/challenges" label="Challenges" icon="🏆" />
             <NavLink to="/teacher/reports" label="Reports" icon="📋" />
@@ -97,10 +171,13 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
           <Link to="/publishers" className="text-sm font-medium text-rq-orange hover:text-rq-orange/80 transition-colors">For Publishers</Link>
         </div>
         <div className="flex items-center gap-3">
-          <Link to="/demo" className="hidden md:inline-block text-sm font-semibold text-rq-purple hover:text-rq-purple-dark transition-colors">
+          <Link to="/demo" className="hidden md:inline-block text-sm font-semibold text-rq-muted hover:text-rq-purple transition-colors">
             Try Demo
           </Link>
-          <Link to="/demo" className="bg-gradient-to-r from-rq-purple to-rq-purple-light text-white px-5 py-2 rounded-full text-sm font-bold hover:shadow-lg hover:shadow-purple-200 transition-all hover:-translate-y-0.5">
+          <Link to="/login" className="hidden md:inline-block text-sm font-semibold text-rq-purple hover:text-rq-purple-dark transition-colors">
+            Sign In
+          </Link>
+          <Link to="/signup" className="bg-gradient-to-r from-rq-purple to-rq-purple-light text-white px-5 py-2 rounded-full text-sm font-bold hover:shadow-lg hover:shadow-purple-200 transition-all hover:-translate-y-0.5">
             Get Started Free
           </Link>
         </div>

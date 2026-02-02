@@ -1,9 +1,20 @@
+import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { sampleBooks } from '../data/mockData'
+import ReviewForm from '../components/ReviewForm'
+import ReviewsList from '../components/ReviewsList'
 
 export default function BookDetail() {
   const { id } = useParams()
   const book = sampleBooks.find(b => b.id === id) || sampleBooks[0]
+  const [showReviewForm, setShowReviewForm] = useState(false)
+  const [reviewsKey, setReviewsKey] = useState(0)
+
+  function handleReviewSubmitted(review) {
+    // Refresh reviews list by changing the key
+    setReviewsKey((k) => k + 1)
+    setShowReviewForm(false)
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
@@ -36,12 +47,36 @@ export default function BookDetail() {
               <button className="bg-teal-100 text-rq-teal px-6 py-2.5 rounded-full font-bold hover:bg-teal-200 transition-colors">
                 ⏱️ Start Reading
               </button>
-              <button className="bg-gray-100 text-rq-muted px-6 py-2.5 rounded-full font-bold hover:bg-gray-200 transition-colors">
+              <button
+                onClick={() => setShowReviewForm(!showReviewForm)}
+                className={`px-6 py-2.5 rounded-full font-bold transition-colors ${
+                  showReviewForm
+                    ? 'bg-rq-purple text-white'
+                    : 'bg-gray-100 text-rq-muted hover:bg-gray-200'
+                }`}
+              >
                 ✍️ Write Review
               </button>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Review Form (toggle) */}
+      {showReviewForm && (
+        <div className="mt-6">
+          <ReviewForm
+            bookId={book.id}
+            bookTitle={book.title}
+            onSubmit={handleReviewSubmitted}
+            onCancel={() => setShowReviewForm(false)}
+          />
+        </div>
+      )}
+
+      {/* Reviews List */}
+      <div className="mt-8">
+        <ReviewsList key={reviewsKey} bookId={book.id} />
       </div>
     </div>
   )
