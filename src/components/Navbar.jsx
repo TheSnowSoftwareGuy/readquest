@@ -4,7 +4,7 @@ import { useState } from 'react'
 export default function Navbar({ isDemo, demoMode, setDemoMode }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
-  const isStudent = location.pathname.startsWith('/student')
+  const isStudent = location.pathname.startsWith('/student') || location.pathname.startsWith('/discover')
   const isTeacher = location.pathname.startsWith('/teacher')
 
   if (isStudent) {
@@ -19,6 +19,7 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
             <NavLink to="/student" label="Home" icon="🏠" />
             <NavLink to="/student/bookshelf" label="My Shelf" icon="📖" />
             <NavLink to="/student/challenges" label="Challenges" icon="🏆" />
+            <NavLink to="/discover" label="Shows" icon="📺" />
             <NavLink to="/student/social" label="Friends" icon="👥" />
             <NavLink to="/student/stats" label="Stats" icon="📊" />
           </div>
@@ -44,6 +45,7 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
             <NavLink to="/student" label="Home" icon="🏠" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/student/bookshelf" label="My Shelf" icon="📖" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/student/challenges" label="Challenges" icon="🏆" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/discover" label="Shows" icon="📺" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/student/social" label="Friends" icon="👥" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/student/stats" label="Stats" icon="📊" mobile onClick={() => setMobileOpen(false)} />
           </div>
@@ -92,6 +94,7 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
           <a href="#how-it-works" className="text-sm font-medium text-rq-muted hover:text-rq-purple transition-colors">How It Works</a>
           <a href="#testimonials" className="text-sm font-medium text-rq-muted hover:text-rq-purple transition-colors">Testimonials</a>
           <Link to="/pricing" className="text-sm font-medium text-rq-muted hover:text-rq-purple transition-colors">Pricing</Link>
+          <Link to="/publishers" className="text-sm font-medium text-rq-orange hover:text-rq-orange/80 transition-colors">For Publishers</Link>
         </div>
         <div className="flex items-center gap-3">
           <Link to="/demo" className="hidden md:inline-block text-sm font-semibold text-rq-purple hover:text-rq-purple-dark transition-colors">

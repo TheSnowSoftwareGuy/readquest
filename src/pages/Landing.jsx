@@ -308,6 +308,88 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* For Publishers / Product Placement */}
+      <section className="py-24 bg-gradient-to-br from-orange-50 to-pink-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white border border-orange-200 rounded-full px-4 py-1.5 mb-6 shadow-sm">
+                <span className="text-sm">📺</span>
+                <span className="text-sm font-medium text-rq-orange">For Publishers & Advertisers</span>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+                Embedded <span className="text-rq-orange">Book Marketing</span> That Kids Love
+              </h2>
+              <p className="text-lg text-rq-muted mb-8 leading-relaxed">
+                Place your books where millions of kids are already watching. ReadQuest is the first platform connecting children's publishers with TV shows, streaming originals, and YouTube creators — with closed-loop attribution from viewership to reads.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  'Place books in Netflix, PBS Kids, Disney+, and YouTube shows',
+                  'Creator partnerships with 142+ kids influencers',
+                  'Track impressions → shelf adds → reads (full attribution)',
+                  'COPPA-compliant aggregated analytics',
+                  'The most defensible product category in kids media',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <span className="text-rq-orange text-lg">✓</span>
+                    <span className="text-rq-muted">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/publishers" className="bg-gradient-to-r from-rq-orange to-rq-pink text-white px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl hover:shadow-orange-200 transition-all hover:-translate-y-1 inline-flex items-center gap-2">
+                Publisher Portal →
+              </Link>
+            </div>
+            <div>
+              <div className="bg-white rounded-2xl shadow-lg border border-orange-100 overflow-hidden">
+                <div className="bg-gradient-to-r from-rq-orange to-rq-pink p-4">
+                  <span className="text-white font-display font-semibold">📊 Publisher Attribution Dashboard</span>
+                </div>
+                <div className="p-5 space-y-4">
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="bg-orange-50 rounded-lg p-3 text-center">
+                      <div className="text-xl font-bold text-rq-orange">22.1M</div>
+                      <div className="text-[10px] text-rq-muted">Impressions</div>
+                    </div>
+                    <div className="bg-purple-50 rounded-lg p-3 text-center">
+                      <div className="text-xl font-bold text-rq-purple">399K</div>
+                      <div className="text-[10px] text-rq-muted">Shelf Adds</div>
+                    </div>
+                    <div className="bg-teal-50 rounded-lg p-3 text-center">
+                      <div className="text-xl font-bold text-rq-teal">104.3K</div>
+                      <div className="text-[10px] text-rq-muted">Books Read</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold mb-2">Show-to-Read Attribution</div>
+                    <div className="space-y-2">
+                      {[
+                        { show: '📺 Ada Twist', book: 'The Wild Robot', reads: '22.1K' },
+                        { show: '🧢 Blippi', book: 'Dog Man', reads: '41.2K' },
+                        { show: '👻 Ghostwriter', book: 'Percy Jackson', reads: '12.3K' },
+                        { show: '👩‍🏫 Ms. Rachel', book: 'Wings of Fire', reads: '18.9K' },
+                      ].map((row, i) => (
+                        <div key={i} className="flex items-center justify-between bg-gray-50 rounded-lg p-2 text-xs">
+                          <span className="font-medium">{row.show}</span>
+                          <span className="text-rq-muted">→</span>
+                          <span>{row.book}</span>
+                          <span className="font-bold text-rq-teal">{row.reads}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <span className="bg-orange-100 text-rq-orange text-xs px-2 py-1 rounded-full">$0.48 avg cost/read</span>
+                    <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">26.1% view-to-read rate</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section id="testimonials" className="py-24">
         <div className="max-w-7xl mx-auto px-4">

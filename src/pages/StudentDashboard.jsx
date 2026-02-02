@@ -1,6 +1,7 @@
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { demoStudent, bookshelf, sampleBooks, readingLog, socialFeed, challenges, recommendations, leaderboard, badges, weeklyStats, xpForLevel, getLevelInfo } from '../data/mockData'
+import { sponsoredBooks } from '../data/placementData'
 
 export default function StudentDashboard() {
   return (
@@ -99,6 +100,29 @@ function StudentHome() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {recommendations.map((book, i) => (
               <BookCard key={i} book={book} reason={book.reason} />
+            ))}
+          </div>
+        </div>
+
+        {/* As Seen On TV */}
+        <div className="bg-gradient-to-r from-orange-50 to-purple-50 rounded-2xl p-5 border border-orange-100 md:col-span-2">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-display font-semibold text-lg">📺 Books From Your Favorite Shows</h3>
+            <Link to="/discover" className="text-xs bg-white text-rq-orange px-3 py-1 rounded-full font-medium hover:bg-orange-100 transition-colors">Discover More →</Link>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {sponsoredBooks.map((book, i) => (
+              <div key={i} className="group cursor-pointer">
+                <div className="relative aspect-[2/3] rounded-xl overflow-hidden shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all mb-2 bg-gradient-to-br from-purple-100 to-teal-100">
+                  <img src={book.cover} alt={book.title} className="w-full h-full object-cover" onError={(e) => { e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><rect fill="%236C3CE1" width="200" height="300" rx="8"/><text x="100" y="160" text-anchor="middle" fill="white" font-size="60">📖</text></svg>' }} />
+                  <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-0.5 text-[10px] font-bold shadow-sm">
+                    {book.seenIn[0] && `📺 ${book.seenIn[0].show}`}
+                  </div>
+                </div>
+                <div className="text-xs font-semibold truncate">{book.title}</div>
+                <div className="text-[10px] text-rq-muted truncate">{book.author}</div>
+                <div className="text-[10px] text-rq-orange mt-0.5 truncate">{book.sponsorLabel}</div>
+              </div>
             ))}
           </div>
         </div>
