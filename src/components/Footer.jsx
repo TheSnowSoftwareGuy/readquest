@@ -51,7 +51,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-white/40">© 2026 Phoenix Intelligence. All rights reserved.</p>
+          <p className="text-sm text-white/40">© 2026 PSH Industries. All rights reserved.</p>
           <div className="flex gap-4">
             <a href="#" className="text-white/40 hover:text-white transition-colors text-xl">𝕏</a>
             <a href="#" className="text-white/40 hover:text-white transition-colors text-lg">in</a>

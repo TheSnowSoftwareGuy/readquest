@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { showPartners, placementTypes, publisherTiers, dealExamples, revenueProjections, campaignMetrics } from '../data/placementData'
+import { showPartners, placementTypes, publisherTiers, dealExamples, campaignMetrics } from '../data/placementData'
 
 export default function Publishers() {
   return (
@@ -29,7 +29,7 @@ export default function Publishers() {
               <a href="#tiers" className="bg-gradient-to-r from-rq-orange to-rq-pink text-white px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl hover:shadow-orange-200 transition-all hover:-translate-y-1 inline-flex items-center justify-center gap-2">
                 View Publisher Plans →
               </a>
-              <a href="mailto:phull@phoenix-intel.com" className="bg-white text-rq-orange border-2 border-orange-200 px-8 py-4 rounded-full text-lg font-bold hover:border-rq-orange transition-all hover:-translate-y-1">
+              <a href="mailto:phull@pshindustries.com" className="bg-white text-rq-orange border-2 border-orange-200 px-8 py-4 rounded-full text-lg font-bold hover:border-rq-orange transition-all hover:-translate-y-1">
                 Schedule a Call
               </a>
             </div>
@@ -179,7 +179,7 @@ export default function Publishers() {
             {[
               { value: campaignMetrics.totalImpressions, label: 'Total Impressions' },
               { value: campaignMetrics.avgReadRate, label: 'View-to-Read Rate' },
-              { value: campaignMetrics.avgCostPerRead, label: 'Avg Cost Per Read' },
+              { value: campaignMetrics.activePublishers + '+', label: 'Active Publishers' },
               { value: campaignMetrics.creatorPartners, label: 'Creator Partners' },
             ].map((stat, i) => (
               <div key={i} className="bg-white rounded-xl p-4 text-center border border-purple-50 shadow-sm">
@@ -211,7 +211,7 @@ export default function Publishers() {
                   { label: 'Total Impressions', value: '22.1M', icon: '👁️' },
                   { label: 'Shelf Adds', value: '399K', icon: '📚' },
                   { label: 'Books Read', value: '104.3K', icon: '📖' },
-                  { label: 'Avg Cost/Read', value: '$0.48', icon: '💰' },
+                  { label: 'View-to-Read Rate', value: '26.1%', icon: '📊' },
                 ].map((m, i) => (
                   <div key={i} className="bg-gradient-to-br from-orange-50 to-transparent rounded-xl p-3 text-center border border-orange-100">
                     <div className="text-xl">{m.icon}</div>
@@ -233,16 +233,15 @@ export default function Publishers() {
                         <th className="px-4 py-2">Viewers</th>
                         <th className="px-4 py-2">New Reads</th>
                         <th className="px-4 py-2">Conv Rate</th>
-                        <th className="px-4 py-2">Revenue</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
                       {[
-                        { show: '📺 Ada Twist', book: 'The Wild Robot', viewers: '5.1M', reads: '22.1K', conv: '0.43%', rev: '$11,050' },
-                        { show: '🧢 Blippi', book: 'Dog Man', viewers: '8.7M', reads: '41.2K', conv: '0.47%', rev: '$20,600' },
-                        { show: '👻 Ghostwriter', book: 'Percy Jackson', viewers: '2.4M', reads: '12.3K', conv: '0.51%', rev: '$6,150' },
-                        { show: '👩‍🏫 Ms. Rachel', book: 'Wings of Fire', viewers: '3.8M', reads: '18.9K', conv: '0.50%', rev: '$9,450' },
-                        { show: '🦎 Wild Kratts', book: 'Hatchet', viewers: '1.9M', reads: '9.8K', conv: '0.52%', rev: '$4,900' },
+                        { show: '📺 Ada Twist', book: 'The Wild Robot', viewers: '5.1M', reads: '22.1K', conv: '0.43%' },
+                        { show: '🧢 Blippi', book: 'Dog Man', viewers: '8.7M', reads: '41.2K', conv: '0.47%' },
+                        { show: '👻 Ghostwriter', book: 'Percy Jackson', viewers: '2.4M', reads: '12.3K', conv: '0.51%' },
+                        { show: '👩‍🏫 Ms. Rachel', book: 'Wings of Fire', viewers: '3.8M', reads: '18.9K', conv: '0.50%' },
+                        { show: '🦎 Wild Kratts', book: 'Hatchet', viewers: '1.9M', reads: '9.8K', conv: '0.52%' },
                       ].map((row, i) => (
                         <tr key={i} className="hover:bg-orange-50/30">
                           <td className="px-4 py-2 font-medium">{row.show}</td>
@@ -250,7 +249,6 @@ export default function Publishers() {
                           <td className="px-4 py-2">{row.viewers}</td>
                           <td className="px-4 py-2 font-bold text-rq-teal">{row.reads}</td>
                           <td className="px-4 py-2">{row.conv}</td>
-                          <td className="px-4 py-2 font-bold text-rq-orange">{row.rev}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -293,10 +291,6 @@ export default function Publishers() {
                   <div className="flex justify-between">
                     <span className="text-rq-muted">Publisher Pays</span>
                     <span className="font-bold text-rq-orange">{deal.publisherPays}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-rq-muted">Our Commission</span>
-                    <span className="font-bold text-rq-purple">{deal.ourCommission}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-rq-muted">Creator Receives</span>
@@ -362,44 +356,6 @@ export default function Publishers() {
         </div>
       </section>
 
-      {/* Revenue Projections */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl font-bold mb-4">Revenue <span className="text-rq-teal">Projections</span></h2>
-            <p className="text-rq-muted">Placement services revenue potential over 5 years</p>
-          </div>
-          <div className="bg-white rounded-2xl border border-purple-50 shadow-sm overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-gradient-to-r from-purple-50 to-teal-50 text-left text-xs text-rq-muted uppercase">
-                    <th className="px-5 py-3">Period</th>
-                    <th className="px-5 py-3">Subscriptions</th>
-                    <th className="px-5 py-3">Commissions</th>
-                    <th className="px-5 py-3">Placements</th>
-                    <th className="px-5 py-3">Tech/Data</th>
-                    <th className="px-5 py-3 font-bold text-rq-purple">Total</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {revenueProjections.map((row, i) => (
-                    <tr key={i} className="hover:bg-purple-50/30">
-                      <td className="px-5 py-3 font-bold">{row.year}</td>
-                      <td className="px-5 py-3">{row.subscriptions}</td>
-                      <td className="px-5 py-3">{row.commissions}</td>
-                      <td className="px-5 py-3">{row.placements}</td>
-                      <td className="px-5 py-3">{row.tech}</td>
-                      <td className="px-5 py-3 font-bold text-rq-purple">{row.total}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Compliance */}
       <section className="py-20 bg-gradient-to-br from-green-50 to-teal-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -431,7 +387,7 @@ export default function Publishers() {
               Join 47+ publishers already placing books where kids are watching. Start with a free consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative">
-              <a href="mailto:phull@phoenix-intel.com" className="bg-white text-rq-orange px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl transition-all hover:-translate-y-1">
+              <a href="mailto:phull@pshindustries.com" className="bg-white text-rq-orange px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl transition-all hover:-translate-y-1">
                 Schedule a Call →
               </a>
               <Link to="/demo" className="border-2 border-white/50 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/10 transition-all hover:-translate-y-1">

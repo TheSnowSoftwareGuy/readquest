@@ -431,7 +431,7 @@ export default function Landing() {
                 Try Interactive Demo
                 <span>→</span>
               </Link>
-              <a href="mailto:phull@phoenix-intel.com" className="border-2 border-white/50 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/10 transition-all hover:-translate-y-1 inline-flex items-center justify-center gap-2">
+              <a href="mailto:phull@pshindustries.com" className="border-2 border-white/50 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/10 transition-all hover:-translate-y-1 inline-flex items-center justify-center gap-2">
                 Schedule a Call
               </a>
             </div>

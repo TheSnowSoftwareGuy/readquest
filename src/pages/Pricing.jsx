@@ -84,7 +84,7 @@ export default function Pricing() {
             <Link to="/demo" className="bg-gradient-to-r from-rq-purple to-rq-purple-light text-white px-8 py-3 rounded-full font-bold hover:shadow-lg hover:shadow-purple-200 transition-all hover:-translate-y-0.5">
               Try Interactive Demo
             </Link>
-            <a href="mailto:phull@phoenix-intel.com" className="bg-white text-rq-purple border-2 border-purple-200 px-8 py-3 rounded-full font-bold hover:border-rq-purple transition-all hover:-translate-y-0.5">
+            <a href="mailto:phull@pshindustries.com" className="bg-white text-rq-purple border-2 border-purple-200 px-8 py-3 rounded-full font-bold hover:border-rq-purple transition-all hover:-translate-y-0.5">
               Contact Sales
             </a>
           </div>

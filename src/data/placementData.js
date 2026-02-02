@@ -224,7 +224,6 @@ export const campaignMetrics = {
   totalReads: '104.3K',
   avgCTR: '1.8%',
   avgReadRate: '26.1%',
-  avgCostPerRead: '$0.48',
   activePublishers: 47,
   activeCampaigns: 23,
   showPartners: 8,
@@ -233,11 +232,11 @@ export const campaignMetrics = {
 
 export const attributionData = {
   showToRead: [
-    { show: 'Ada Twist, Scientist', book: 'The Wild Robot', viewers: '5.1M', newReads: '22.1K', conversion: '0.43%', revenue: '$11,050' },
-    { show: 'Blippi', book: 'Dog Man', viewers: '8.7M', newReads: '41.2K', conversion: '0.47%', revenue: '$20,600' },
-    { show: 'Ghostwriter', book: 'Percy Jackson', viewers: '2.4M', newReads: '12.3K', conversion: '0.51%', revenue: '$6,150' },
-    { show: 'Ms. Rachel', book: 'Wings of Fire', viewers: '3.8M', newReads: '18.9K', conversion: '0.50%', revenue: '$9,450' },
-    { show: 'Wild Kratts', book: 'Hatchet', viewers: '1.9M', newReads: '9.8K', conversion: '0.52%', revenue: '$4,900' },
+    { show: 'Ada Twist, Scientist', book: 'The Wild Robot', viewers: '5.1M', newReads: '22.1K', conversion: '0.43%' },
+    { show: 'Blippi', book: 'Dog Man', viewers: '8.7M', newReads: '41.2K', conversion: '0.47%' },
+    { show: 'Ghostwriter', book: 'Percy Jackson', viewers: '2.4M', newReads: '12.3K', conversion: '0.51%' },
+    { show: 'Ms. Rachel', book: 'Wings of Fire', viewers: '3.8M', newReads: '18.9K', conversion: '0.50%' },
+    { show: 'Wild Kratts', book: 'Hatchet', viewers: '1.9M', newReads: '9.8K', conversion: '0.52%' },
   ],
   weeklyTrend: [
     { week: 'W1', impressions: 1200000, reads: 5400 },
@@ -259,7 +258,6 @@ export const dealExamples = [
     creator: 'Blippi (20M+ subscribers)',
     placement: 'Blippi visits a library, discovers Dog Man, reads a page aloud, creates a craft',
     publisherPays: '$35,000',
-    ourCommission: '$8,750 (25%)',
     creatorReceives: '$26,250',
     expectedViews: '5-10M within 30 days',
     estimatedCPM: '$3.50-$7.00',
@@ -271,7 +269,6 @@ export const dealExamples = [
     creator: 'Ada Twist, Scientist (Netflix)',
     placement: "Ada's bookshelf features Wings of Fire in 6 episodes; 1 episode narrative mention",
     publisherPays: '$120,000',
-    ourCommission: '$24,000 (20%)',
     creatorReceives: '$96,000',
     expectedViews: '20-50M impressions',
     estimatedCPM: '$2.40-$6.00',
@@ -283,16 +280,10 @@ export const dealExamples = [
     creator: "Super Why's Comic Book Adventures (PBS Kids)",
     placement: 'Super Readers fly INTO the real published book each episode',
     publisherPays: '$300,000 combined ($50K per book)',
-    ourCommission: '$60,000 (20%)',
     creatorReceives: '$240,000 (educational underwriting)',
     expectedViews: '2-4M per episode',
     estimatedCPM: '$2.50-$5.00',
   },
 ]
 
-export const revenueProjections = [
-  { year: 'Year 1', subscriptions: '$200K-$500K', commissions: '$100K-$300K', placements: '$50K-$200K', tech: '$0', total: '$350K-$1M' },
-  { year: 'Year 2', subscriptions: '$500K-$1.2M', commissions: '$300K-$800K', placements: '$200K-$600K', tech: '$50K-$150K', total: '$1M-$2.8M' },
-  { year: 'Year 3', subscriptions: '$1M-$2.5M', commissions: '$600K-$1.5M', placements: '$500K-$1.5M', tech: '$200K-$500K', total: '$2.3M-$6M' },
-  { year: 'Year 5', subscriptions: '$3M-$6M', commissions: '$2M-$5M', placements: '$2M-$5M', tech: '$1M-$2M', total: '$8M-$18M' },
-]
+// Revenue projections moved to internal docs — not for public site
