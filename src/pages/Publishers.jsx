@@ -179,7 +179,7 @@ export default function Publishers() {
             {[
               { value: campaignMetrics.totalImpressions, label: 'Total Impressions' },
               { value: campaignMetrics.avgReadRate, label: 'View-to-Read Rate' },
-              { value: campaignMetrics.activePublishers + '+', label: 'Active Publishers' },
+              { value: '$0.48', label: 'Avg Cost Per Read' },
               { value: campaignMetrics.creatorPartners, label: 'Creator Partners' },
             ].map((stat, i) => (
               <div key={i} className="bg-white rounded-xl p-4 text-center border border-purple-50 shadow-sm">
@@ -211,7 +211,7 @@ export default function Publishers() {
                   { label: 'Total Impressions', value: '22.1M', icon: '👁️' },
                   { label: 'Shelf Adds', value: '399K', icon: '📚' },
                   { label: 'Books Read', value: '104.3K', icon: '📖' },
-                  { label: 'View-to-Read Rate', value: '26.1%', icon: '📊' },
+                  { label: 'Avg Cost/Read', value: '$0.48', icon: '💰' },
                 ].map((m, i) => (
                   <div key={i} className="bg-gradient-to-br from-orange-50 to-transparent rounded-xl p-3 text-center border border-orange-100">
                     <div className="text-xl">{m.icon}</div>
