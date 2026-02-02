@@ -40,8 +40,8 @@ export default function Footer() {
               <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li><Link to="/coppa" className="hover:text-white transition-colors">COPPA Compliance</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors">FERPA Compliance</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Data Security</a></li>
+              <li><Link to="/ferpa" className="hover:text-white transition-colors">FERPA Compliance</Link></li>
+              <li><Link to="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link></li>
             </ul>
             <div className="mt-4 flex gap-2">
               <span className="bg-white/10 rounded px-2 py-1 text-xs">🔒 COPPA</span>

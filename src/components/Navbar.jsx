@@ -7,7 +7,7 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
   const isStudent = location.pathname.startsWith('/student') || location.pathname.startsWith('/discover')
   const isTeacher = location.pathname.startsWith('/teacher')
   const isParent = location.pathname.startsWith('/parent')
-  const isAppPage = location.pathname.startsWith('/bookshelf') || location.pathname.startsWith('/reading-log') || location.pathname.startsWith('/achievements') || location.pathname.startsWith('/feed')
+  const isAppPage = location.pathname.startsWith('/bookshelf') || location.pathname.startsWith('/reading-log') || location.pathname.startsWith('/achievements') || location.pathname.startsWith('/feed') || location.pathname.startsWith('/leaderboards') || location.pathname.startsWith('/avatar')
 
   if (isParent) {
     return (
@@ -55,7 +55,9 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
             <NavLink to="/bookshelf" label="My Bookshelf" icon="📚" />
             <NavLink to="/reading-log" label="Reading Log" icon="📖" />
             <NavLink to="/achievements" label="Achievements" icon="🏆" />
+            <NavLink to="/leaderboards" label="Leaderboards" icon="🏅" />
             <NavLink to="/feed" label="Social Feed" icon="📣" />
+            <NavLink to="/avatar" label="Avatar" icon="🎨" />
             <NavLink to="/student" label="Dashboard" icon="🏠" />
             <NavLink to="/discover" label="Discover" icon="📺" />
           </div>
@@ -71,7 +73,9 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
             <NavLink to="/bookshelf" label="My Bookshelf" icon="📚" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/reading-log" label="Reading Log" icon="📖" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/achievements" label="Achievements" icon="🏆" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/leaderboards" label="Leaderboards" icon="🏅" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/feed" label="Social Feed" icon="📣" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/avatar" label="Avatar" icon="🎨" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/student" label="Dashboard" icon="🏠" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/discover" label="Discover" icon="📺" mobile onClick={() => setMobileOpen(false)} />
           </div>
@@ -93,7 +97,9 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
             <NavLink to="/bookshelf" label="Bookshelf" icon="📚" />
             <NavLink to="/reading-log" label="Reading Log" icon="📖" />
             <NavLink to="/achievements" label="Achievements" icon="🏆" />
+            <NavLink to="/leaderboards" label="Leaderboards" icon="🏅" />
             <NavLink to="/feed" label="Feed" icon="📣" />
+            <NavLink to="/avatar" label="Avatar" icon="🎨" />
             <NavLink to="/discover" label="Shows" icon="📺" />
           </div>
           <div className="flex items-center gap-3">
@@ -119,7 +125,9 @@ export default function Navbar({ isDemo, demoMode, setDemoMode }) {
             <NavLink to="/bookshelf" label="Bookshelf" icon="📚" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/reading-log" label="Reading Log" icon="📖" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/achievements" label="Achievements" icon="🏆" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/leaderboards" label="Leaderboards" icon="🏅" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/feed" label="Feed" icon="📣" mobile onClick={() => setMobileOpen(false)} />
+            <NavLink to="/avatar" label="Avatar" icon="🎨" mobile onClick={() => setMobileOpen(false)} />
             <NavLink to="/discover" label="Shows" icon="📺" mobile onClick={() => setMobileOpen(false)} />
           </div>
         )}

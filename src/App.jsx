@@ -24,6 +24,10 @@ import ParentDashboard from './pages/ParentDashboard'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import COPPACompliance from './pages/COPPACompliance'
+import FERPACompliance from './pages/FERPACompliance'
+import CookiePolicy from './pages/CookiePolicy'
+import Leaderboards from './pages/Leaderboards'
+import AvatarCustomizer from './pages/AvatarCustomizer'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -39,8 +43,8 @@ export default function App() {
   const location = useLocation()
   const isLanding = location.pathname === '/' || location.pathname === ''
   const isPublishers = location.pathname.startsWith('/publishers')
-  const isDemoRoute = location.pathname.startsWith('/demo') || location.pathname.startsWith('/student') || location.pathname.startsWith('/teacher') || location.pathname.startsWith('/book') || location.pathname.startsWith('/discover') || location.pathname.startsWith('/bookshelf') || location.pathname.startsWith('/reading-log') || location.pathname.startsWith('/achievements') || location.pathname.startsWith('/feed') || location.pathname.startsWith('/parent')
-  const isLegalPage = location.pathname.startsWith('/privacy') || location.pathname.startsWith('/terms') || location.pathname.startsWith('/coppa')
+  const isDemoRoute = location.pathname.startsWith('/demo') || location.pathname.startsWith('/student') || location.pathname.startsWith('/teacher') || location.pathname.startsWith('/book') || location.pathname.startsWith('/discover') || location.pathname.startsWith('/bookshelf') || location.pathname.startsWith('/reading-log') || location.pathname.startsWith('/achievements') || location.pathname.startsWith('/feed') || location.pathname.startsWith('/parent') || location.pathname.startsWith('/leaderboards') || location.pathname.startsWith('/avatar')
+  const isLegalPage = location.pathname.startsWith('/privacy') || location.pathname.startsWith('/terms') || location.pathname.startsWith('/coppa') || location.pathname.startsWith('/ferpa') || location.pathname.startsWith('/cookies')
   const isAuthRoute = AUTH_ROUTES.some((r) => location.pathname.startsWith(r))
 
   return (
@@ -73,11 +77,15 @@ export default function App() {
           <Route path="/feed" element={<SocialFeed />} />
           <Route path="/teacher/class" element={<TeacherClassView />} />
           <Route path="/parent" element={<ParentDashboard />} />
+          <Route path="/leaderboards" element={<Leaderboards />} />
+          <Route path="/avatar" element={<AvatarCustomizer />} />
 
           {/* Legal pages (own footer included) */}
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/coppa" element={<COPPACompliance />} />
+          <Route path="/ferpa" element={<FERPACompliance />} />
+          <Route path="/cookies" element={<CookiePolicy />} />
 
           {/* Demo pages (no auth required) */}
           <Route path="/demo" element={<Demo setDemoMode={setDemoMode} />} />

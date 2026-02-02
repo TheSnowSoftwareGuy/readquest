@@ -106,8 +106,8 @@
   - [x] XPProgressBar.jsx component (animated fill, level title, XP remaining, purple gradient)
   - [x] BadgeCard.jsx + BadgeModal components (rarity colors, earned glow vs locked, click for detail modal)
   - [x] /achievements route + Navbar integration (app nav + student nav, desktop + mobile)
-  - [ ] Avatar customization (unlockable items)
-  - [ ] Leaderboards (class, school)
+  - [x] Avatar customization (unlockable items) — AvatarCustomizer.jsx: character preview, 7 category tabs, item grid with lock/equip, BookCoins balance, demo data
+  - [x] Leaderboards (class, school) — Leaderboards.jsx: Class/School tabs, 4 metrics (XP/Books/Minutes/Streak), time period filter, top-3 podium with medals, current user highlight, 20 demo students
   - [ ] Achievement milestones
   - [ ] Anti-gaming measures
 
@@ -174,9 +174,9 @@
 - [x] COPPA compliance documentation (COPPACompliance.jsx — 9 sections, consent process, data minimization table, third-party services, FTC complaint info)
 - [x] Footer links updated (Privacy Policy, Terms, COPPA → actual route pages)
 - [x] Routes added: /privacy, /terms, /coppa
-- [ ] FERPA compliance documentation
+- [x] FERPA compliance documentation (FERPACompliance.jsx — 10 sections, school official exception, PSH Industries as operator, directory info, data security, parent rights, annual notification, data governance)
 - [ ] Data retention policy
-- [ ] Cookie policy
+- [x] Cookie policy (CookiePolicy.jsx — 10 sections, essential/analytics cookies table, local storage, third-party cookies, managing cookies, children's protections, PSH Industries branding)
 
 ---
 
@@ -259,3 +259,8 @@
 | 2026-02-02 | Terms of Service page | ✅ Done | 12 sections, service description, accounts, acceptable use, IP, content moderation, liability, termination |
 | 2026-02-02 | COPPA Compliance page | ✅ Done | 9 sections, consent process (5 steps), data minimization table, third-party services table, social safety, FTC complaint info |
 | 2026-02-02 | Routes + Navbar + Footer update | ✅ Done | /parent, /privacy, /terms, /coppa routes; Parent navbar with role badge; Footer legal links wired to actual pages |
+| 2026-02-02 | Leaderboards page (Leaderboards.jsx) | ✅ Done | Class/School tabs, 4 metrics (XP/Books Read/Minutes/Streak), time period filter (Week/Month/All Time), top-3 podium with gold/silver/bronze medals, current user highlight, 20 demo students, motivational footer |
+| 2026-02-02 | Avatar Customizer page (AvatarCustomizer.jsx) | ✅ Done | Character preview with equipped items, 7 category tabs (Hair/Skin/Eyes/Outfits/Accessories/Backgrounds/Pets), 8-12 items per category, lock/equip mechanics, BookCoins balance, Earn More link, emoji-based demo |
+| 2026-02-02 | FERPA Compliance page (FERPACompliance.jsx) | ✅ Done | 10 sections, school official exception, PSH Industries as operator table, directory info handling, data security (technical + organizational), parent/student rights, annual notification, data governance, contact info |
+| 2026-02-02 | Cookie Policy page (CookiePolicy.jsx) | ✅ Done | 10 sections, essential cookies table, analytics cookies, local storage table, third-party cookies table, managing cookies (browser links), children's protections, PSH Industries branding |
+| 2026-02-02 | Routes + Navbar + Footer update | ✅ Done | /leaderboards, /avatar, /ferpa, /cookies routes; Leaderboards + Avatar in student nav + app nav (desktop + mobile); FERPA + Cookie Policy in footer |
